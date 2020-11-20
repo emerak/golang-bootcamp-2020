@@ -7,6 +7,7 @@ import (
 	"github.com/emerak/golang-bootcamp-2020/config"
 	"github.com/emerak/golang-bootcamp-2020/infrastructure/datastore"
 	"github.com/emerak/golang-bootcamp-2020/infrastructure/router"
+	"github.com/emerak/golang-bootcamp-2020/migrations"
 	"github.com/emerak/golang-bootcamp-2020/registry"
 	"github.com/labstack/echo/v4"
 )
@@ -15,6 +16,7 @@ func main() {
 	config.ReadConfig()
 	db := datastore.NewDB()
 	db.LogMode(true)
+	migrations.Migrate(db)
 	defer db.Close()
 	r := registry.NewRegistry(db)
 
