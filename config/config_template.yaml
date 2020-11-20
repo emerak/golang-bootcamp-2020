@@ -1,0 +1,12 @@
+database:
+  user: your_user
+  password: your_password
+  net: tcp
+  addr: 127.0.0.1:3306
+  dbname: sys
+  allowNativePasswords: true
+  params:
+    parseTime: "true"
+
+server:
+  address: 8080

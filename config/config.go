@@ -35,7 +35,7 @@ func ReadConfig() {
 
 	viper.SetConfigName("config")
 	viper.SetConfigType("yml")
-	viper.AddConfigPath(filepath.Join("$GOPATH", "src", "github.com", "emerak", "golang-bootcamp-2020", "config"))
+	viper.AddConfigPath(filepath.Join("config"))
 	viper.AutomaticEnv()
 
 	if err := viper.ReadInConfig(); err != nil {

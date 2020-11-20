@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/emerak/golang-bootcamp-2020/interface/controller"
-	"github.com/labstack/echo"
-	"github.com/labstack/echo/middleware"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 func NewRouter(e *echo.Echo, c controller.AppController) *echo.Echo {

@@ -5,14 +5,18 @@ import (
 	"log"
 
 	"github.com/emerak/golang-bootcamp-2020/config"
-	//"github.com/emerak/golang-bootcamp-2020/infrastructure/datastore"
+	"github.com/emerak/golang-bootcamp-2020/infrastructure/datastore"
 	"github.com/emerak/golang-bootcamp-2020/infrastructure/router"
 	"github.com/emerak/golang-bootcamp-2020/registry"
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 func main() {
 	config.ReadConfig()
+	db := datastore.NewDB()
+	db.LogMode(true)
+	defer db.Close()
+	r := registry.NewRegistry(db)
 
 	e := echo.New()
 	e = router.NewRouter(e, r.NewAppController())
