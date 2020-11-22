@@ -15,7 +15,7 @@ func NewUserPresenter() UserPresenter {
 
 func (up *userPresenter) ResponseUsers(us []*model.User) []*model.User {
 	for _, u := range us {
-		u.FirstName = "Mr." + u.FirstName
+		u.FullName = u.FirstName + " " + u.LastName
 	}
 	return us
 }
