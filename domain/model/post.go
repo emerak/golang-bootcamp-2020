@@ -3,12 +3,13 @@ package model
 import "time"
 
 type Post struct {
-	ID          uint      `gorm:"primary_key" json:"id"`
-	UserID      string    `json:"user_id"`
-	Title       string    `json:"title"`
-	Body        string    `json:"body"`
-	CreatedAt   time.Time `json:"created_at"`
-	UpdatedAt   time.Time `json:"updated_at"`
-	DeletedAt   time.Time `json:"deleted_at"`
-	PublishedAt time.Time `json:"deleted_at"`
+	ID          uint
+	UserID      uint
+	User        User
+	Title       string
+	Body        string
+	CreatedAt   time.Time
+	UpdatedAt   time.Time
+	DeletedAt   time.Time `gorm:"default:null"`
+	PublishedAt time.Time `gorm:"default:null"`
 }

@@ -17,5 +17,8 @@ func main() {
 	user2 := model.User{FirstName: "Jane", LastName: "Dee", Username: "janedee"}
 	db.Create(&user2)
 
+	post1 := model.Post{UserID: user1.ID, Title: "Lorem ipsum", Body: "Sit Ament"}
+	db.Create(&post1)
+
 	defer db.Close()
 }
